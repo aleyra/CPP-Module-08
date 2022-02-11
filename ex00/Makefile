@@ -1,6 +1,6 @@
 .PHONY: all clean fclean re
 # Name of file
-NAME		=	module07
+NAME		=	easyfind
 
 # Name directory
 PATH_OBJ	=	objs
@@ -9,7 +9,7 @@ PATH_OBJ	=	objs
 SRCS		=	main.cpp 
 
 OBJS		=	$(addprefix $(PATH_OBJ)/, $(SRCS:.cpp=.o))
-INCS		=	whatever.hpp
+INCS		=	easyfind.hpp
 
 # Commands of compilation
 COMP		=	clang++
