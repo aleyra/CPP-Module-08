@@ -54,8 +54,9 @@ long int	Span::shortestSpan(){
 long int	Span::longestSpan(){
 	if (this->_size <= 1 || this->_occupedSlots <= 1)
 		throw std::exception();
-	auto	t = std::minmax_element(this->_list.begin(), this->_list.end());
-	long int	ret = *t.second - *t.first;
+	std::vector<int>::iterator min = std::min_element(this->_list.begin(), this->_list.end());
+	std::vector<int>::iterator max = std::max_element(this->_list.begin(), this->_list.end());
+	long int	ret = *max - *min;
 	return(ret);
 }
 
