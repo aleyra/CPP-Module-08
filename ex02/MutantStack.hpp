@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include <stack>
+# include <iterator>
 
 template <typename T>
 class MutantStack:public std::stack<T>{
@@ -13,14 +14,17 @@ public:
 
 	MutantStack<T> &	operator=(MutantStack<T> const &src);
 
-	typedef MutantStack<T>::iterator iterator;//?
+	class iterator: public std::iterator<std::input_iterator_tag, int>{
+	};
+
+	// typedef MutantStack<T>::iterator iterator;//?
 	iterator	begin();//?
 	iterator	end();//?
 	iterator	operator++();//?
 	iterator	operator++(int );//?
 	iterator	operator--();//?
 	iterator	operator--(int );//?
-	T			operator*();//?
+	T &			operator*();//?
 
 protected:
 
