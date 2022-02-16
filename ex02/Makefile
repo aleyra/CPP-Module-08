@@ -6,7 +6,7 @@ NAME		=	stack
 PATH_OBJ	=	objs
 
 #List of sources
-SRCS		=	main.cpp MutantStack.cpp
+SRCS		=	main.cpp
 
 OBJS		=	$(addprefix $(PATH_OBJ)/, $(SRCS:.cpp=.o))
 INCS		=	MutantStack.hpp

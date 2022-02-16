@@ -8,23 +8,27 @@
 template <typename T>
 class MutantStack:public std::stack<T>{
 public:
-	MutantStack();
-	MutantStack(MutantStack<T> const &src);
-	virtual ~MutantStack();
+	MutantStack(){}
+	MutantStack(MutantStack<T> const &src){
+		*this = src;
+	}
+	virtual ~MutantStack(){}
 
-	MutantStack<T> &	operator=(MutantStack<T> const &src);
+	MutantStack<T> &	operator=(MutantStack<T> const &src){
+		(void)src;
+		return (*this);
+	}
 
-	class iterator: public std::iterator<std::input_iterator_tag, int>{
-	};
-
-	// typedef MutantStack<T>::iterator iterator;//?
-	iterator	begin();//?
-	iterator	end();//?
-	iterator	operator++();//?
-	iterator	operator++(int );//?
-	iterator	operator--();//?
-	iterator	operator--(int );//?
-	T &			operator*();//?
+	typedef typename MutantStack::container_type::iterator iterator;
+	iterator	begin(){
+		return (this->c.begin());
+	}
+	iterator	end(){
+		return(this->c.end());
+	}
+	T &			operator[](unsigned int const & i){
+		return (this->c[i]);
+	}
 
 protected:
 
