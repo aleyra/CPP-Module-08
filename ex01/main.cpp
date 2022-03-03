@@ -18,9 +18,10 @@ int main(){
 	{
 		std::cout << "my tests\n";
 		Span s(10000);
+		std::srand(time(NULL));
 
 		for (int i = 0; i < 10000; i++){
-			s.addNumber(rand());
+			s.addNumber(std::rand());
 		}
 
 		std::cout << "shortest span = " << s.shortestSpan() << std::endl;

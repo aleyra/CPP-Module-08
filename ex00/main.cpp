@@ -68,8 +68,8 @@ int	main(){
 
 	{
 		std::cout << "with a forward list\n";
-		std::forward_list<int> mylist = { 34, 77, 16, 2 };
-
+		int myints[] = {75,23,16,42,13};
+		std::forward_list<int> mylist (myints, myints + 5);
 		try{
 			std::forward_list<int>::iterator	a = easyfind(mylist, 16);
 			std::cout << *a << std::endl;
@@ -89,7 +89,8 @@ int	main(){
 
 	{
 		std::cout << "with a list\n";
-		std::list<int> mylist {75,23,65,42,13};
+		int myints[] = {75,23,65,42,13};
+		std::list<int> mylist (myints, myints + 5);
 		try{
 			std::list<int>::iterator	a = easyfind(mylist, 13);
 			std::cout << *a << std::endl;
