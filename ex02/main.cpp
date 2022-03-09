@@ -47,9 +47,6 @@ int	main(){
 		++it2;
 		i++;
 	}
-	std::stack<std::string> s2(ms);
-
-	std::cout << "\nMy tests\n";
 
 	return (0);
 }

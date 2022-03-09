@@ -13,7 +13,7 @@ INCS		=	easyfind.hpp
 
 # Commands of compilation
 COMP		=	c++
-COMP_FLAG	=	-Wall -Werror -Wextra
+COMP_FLAG	=	-Wall -Werror -Wextra -std=c++98
 
 # Others Command
 RM			=	/bin/rm

@@ -4,17 +4,18 @@
 # include <iostream>
 # include <stack>
 # include <iterator>
+# include <deque>
 
-template <typename T>
-class MutantStack:public std::stack<T>{
+template <typename T, typename C = std::deque<T> >
+class MutantStack:public std::stack<T, C>{
 public:
 	MutantStack(){}
-	MutantStack(MutantStack<T> const &src){
+	MutantStack(MutantStack const &src){
 		*this = src;
 	}
 	virtual ~MutantStack(){}
 
-	MutantStack<T> &	operator=(MutantStack<T> const &src){
+	MutantStack &	operator=(MutantStack const &src){
 		(void)src;
 		return (*this);
 	}
