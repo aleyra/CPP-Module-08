@@ -7,7 +7,8 @@
 # include <deque>
 
 template <typename T, typename C = std::deque<T> >
-class MutantStack:public std::stack<T, C>{
+class MutantStack
+	: public std::stack<T, C>{
 public:
 	MutantStack(){}
 	MutantStack(MutantStack const &src){
@@ -27,7 +28,20 @@ public:
 	iterator	end(){
 		return(this->c.end());
 	}
-	T &			operator[](unsigned int const & i){
+
+	typedef typename MutantStack::container_type::const_iterator const_iterator;
+	const_iterator	begin() const {
+		return (this->c.begin());
+	}
+	const_iterator	end() const {
+		return(this->c.end());
+	}
+
+	T &			operator[](unsigned int i){
+		return (this->c[i]);
+	}
+
+	const T &			operator[](unsigned int i) const {
 		return (this->c[i]);
 	}
 

@@ -1,6 +1,6 @@
 #include "Span.hpp"
 
-Span::Span(){
+Span::Span() {
 	this->_size = 0;
 	this->_occupedSlots = 0;
 }
@@ -60,26 +60,22 @@ long int	Span::longestSpan(){
 	return(ret);
 }
 
-void	Span::addMoreNumbers(std::vector<int>::iterator begin,
-	std::vector<int>::iterator end){
-	if (this->_size == 0 || this->_occupedSlots == this->_size)
-		throw std::exception();
-	unsigned int	slot_left = this->_size - this->_occupedSlots;
-	long int	d = std::distance(begin, end);
-	if (d > slot_left)
-		d = slot_left;
-	for (std::vector<int>::iterator it = begin; it != begin + d; ++it)
-		this->addNumber(*it);
+void	Span::addMoreNumbers(
+		std::vector<int>::iterator begin,
+		std::vector<int>::iterator end)
+{
+	for (std::vector<int>::iterator it = begin; it != end; ++it)
+		addNumber(*it);
 }
 
-std::vector<int>	Span::getList() const{
+const std::vector<int>&	Span::getList() const{
 	return (this->_list);
 }
 
 std::ostream & operator<<(std::ostream &o, Span const &s){
-	std::vector<int>::iterator b = s.getList().begin();
-	std::vector<int>::iterator e = s.getList().end();
-	for(std::vector<int>::iterator it = b; it != e; ++it){
+	std::vector<int>::const_iterator it = s.getList().begin();
+	std::vector<int>::const_iterator e = s.getList().end();
+	for(; it != e; ++it){
 		o << *it << " ";
 	}
 	o << std::endl;
